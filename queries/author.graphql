@@ -1,14 +1,4 @@
-query GetAuthors {
-    author {
-        ...AuthorData
-    }
-}
-
-fragment BookData on book {
-    name
-}
-
-fragment AuthorData on author {
+fragment AuthorData on Author {
     name
     books {
         ...BookData

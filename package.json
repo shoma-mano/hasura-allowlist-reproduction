@@ -12,5 +12,11 @@
     "dependencies": {
         "@graphql-codegen/cli": "^5.0.0",
         "@graphql-codegen/hasura-allow-list": "^3.0.0"
+    },
+    "devDependencies": {
+        "@graphql-codegen/typed-document-node": "^5.0.1",
+        "@graphql-codegen/typescript": "^4.0.1",
+        "@graphql-codegen/typescript-graphql-request": "^6.0.0",
+        "@graphql-codegen/typescript-operations": "^4.0.1"
     }
 }

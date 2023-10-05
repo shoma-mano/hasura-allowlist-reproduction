@@ -3,19 +3,26 @@ import type { CodegenConfig } from '@graphql-codegen/cli';
 const config: CodegenConfig = {
     schema: [
         {
-            'http://localhost:8080/v1/graphql': {
-                headers: {
-                    'x-hasura-admin-secret': 'my_admin_secret_key',
-                },
+            './schema.graphql': {
+                assumeValid: true,
             },
         },
     ],
     documents: 'queries/**/*.graphql',
     generates: {
-        'metadata/query_collections.yaml': {
+        './generated/query_collections.yaml': {
             plugins: ['hasura-allow-list'],
             config: {
                 globalFragments: true,
+            },
+        },
+        './generated/typed-document-node.ts': {
+            plugins: ['typescript', 'typescript-operations', 'typed-document-node'],
+        },
+        'generated/typescript-graphql.ts': {
+            plugins: ['typescript', 'typescript-operations', 'typescript-graphql-request'],
+            config: {
+                rawRequest: true,
             },
         },
     },

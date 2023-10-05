@@ -1,0 +1,12 @@
+query GetBook {
+    book {
+        ...BookData
+        author {
+            ...AuthorData
+        }
+    }
+}
+
+fragment BookData on Book {
+    name
+}
