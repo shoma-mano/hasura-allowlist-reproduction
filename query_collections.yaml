@@ -1,0 +1,19 @@
+- name: allowed-queries
+  definition:
+    queries:
+      - name: MyQuery
+        query: |-
+          query MyQuery {
+            author {
+              ...AuthorData
+            }
+          }
+          fragment BookData on book {
+            name
+          }
+          fragment AuthorData on author {
+            name
+            books {
+              ...BookData
+            }
+          }
